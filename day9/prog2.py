@@ -15,7 +15,7 @@ for i in range(0, len(nums), 2):
     if i + 1 < len(nums):
         blocks.extend([-1] * nums[i + 1])
 
-# Process  in decreasing ID order
+# in decreasing order
 for cid in range(max(file_sizes.keys()), -1, -1):
     if cid not in file_sizes:
         continue
@@ -42,11 +42,11 @@ for cid in range(max(file_sizes.keys()), -1, -1):
             space_count = 0
 
     if best_pos != -1 and best_pos < fstart:
-        # Clear old position
+
         for i in range(fstart, fstart + size):
             blocks[i] = -1
 
-        # Place in new position
+
         for i in range(best_pos, best_pos + size):
             blocks[i] = cid
 
