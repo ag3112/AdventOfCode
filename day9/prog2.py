@@ -23,10 +23,10 @@ for cid in range(max(file_sizes.keys()), -1, -1):
     size = file_sizes[cid]
 
     # start position
-    file_start = -1
+    fstart = -1
     for i in range(len(blocks)):
         if blocks[i] == cid:
-            file_start = i
+            fstart = i
             break
 
     # leftmost valid position
@@ -41,9 +41,9 @@ for cid in range(max(file_sizes.keys()), -1, -1):
         else:
             space_count = 0
 
-    if best_pos != -1 and best_pos < file_start:
+    if best_pos != -1 and best_pos < fstart:
         # Clear old position
-        for i in range(file_start, file_start + size):
+        for i in range(fstart, fstart + size):
             blocks[i] = -1
 
         # Place in new position
